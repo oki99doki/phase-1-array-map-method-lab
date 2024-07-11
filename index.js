@@ -11,39 +11,49 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-//const titleCased = () => {
-/*  for (let i=0; i<=tutorials.length-1; i++) {
-    console.log(`i is ${i}`)
-    console.log(tutorials[i])
-    let titleCased = tutorials[i].titleCased
-    console.log(titleCased)
-
-  }
-*/
   
-  //return tutorials
-//}
+function capitalizeFirstLetter(word) {
+  var firstLetter = word.charAt(0).toUpperCase();
+  var restOfWord = word.slice(1);
+  return firstLetter + restOfWord;
+}
 
+function captitalizeWords(tutorials) {
+  const sentence = tutorials;
+  const words = sentence.split(" ");
+  const wordsCapitalized = words
 
-function titleCased(str) {
-  //let words = str.toLowerCase().split(' ');
-  let words = str.toLowerCase().split(' ');
   for (let i = 0; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-  }
-  return words.join(' ');
+    wordsCapitalized[i] = words[i].charAt(0).toLocaleUpperCase() + words[i].slice(1)
+    //console.log(words[i]);
+    //console.log(wordsCapitalized[i]);
+  }  
+
+  words2sentence = wordsCapitalized.join(' ')
+  //console.log(words2sentence)
+  return  words2sentence
 }
 
 
-/*
-//let sentence = "hello world";
-let sentence = tutorials[0];
-let titleCasedSentence = titleCase(sentence);
-console.log(titleCasedSentence); // Output: "Hello World"
-*/
+let tutorialsCap = []
 
-for (let i=0; i<=tutorials.length-1; i++) {
-  let sentence = tutorials[i];
-  let titleCasedSentence = titleCased(sentence);
-  console.log(titleCasedSentence); 
+function titleCased(tutorials) {
+
+  for (let j = 0; j < tutorials.length; j++) {
+    //console.log(j)
+    tutorialsCap[j] = captitalizeWords(tutorials[j])
+    //console.log(words[i]);
+    //console.log(wordsCapitalized[i]);
+    //console.log(tutorialsCap)
+    //return tutorialsCap[j]
+    if (j === tutorials.length-1) {
+      //console.log('the last ONE')
+      //return result = tutorialsCap[j]
+    }
+  }  
+  return tutorialsCap
 }
+
+results = titleCased(tutorials)
+
+console.log(results)
